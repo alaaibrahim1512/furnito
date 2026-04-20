@@ -1,0 +1,176 @@
+:root {
+    --text-primary: #1A1A1A; /* أسود هادئ */
+    --text-secondary: #555555; /* رمادي داكن للوصف */
+    --accent-gold: #A68A64; /* لون ذهبي مطفي من الصورة */
+    --bg-page: #F9F7F2; /* بيج فاتح جداً كخلفية احتياطية */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-page);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden; /* يمنع ظهور أشرطة التمرير */
+}
+
+/* الكونتينر الرئيسي: يستخدم الصورة الأصلية كخلفية كاملة */
+.full-page-background {
+    display: flex;
+    width: 90vw;
+    height: 90vh;
+    background-image: url(WhatsApp\ Image\ 2026-04-19\ at\ 6.56.05\ PM.jpeg);
+    background-size:cover;
+    background-position: center;
+}
+
+
+/* القسم الأيسر: شفاف تماماً ليسمح للصورة بالظهور */
+.left-panel-clear {
+    flex: 1.1; /* نفس نسبة الصورة الأصلية تقريباً */
+    background: transparent;
+}
+
+/* القسم الأيمن: التمويه الشفاف (Glassmorphism) */
+.right-panel-glass {
+    flex: 0.9; /* نفس نسبة القسم المموه في الصورة */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    
+    /* سر تأثير الزجاج: خلفية بيضاء شبه شفافة مع تمويه */
+    background: rgba(255, 255, 255, 0.45); 
+    backdrop-filter: blur(7px); 
+    
+}
+
+/* المحتوى الفعلي داخل القسم المموه */
+.form-content-wrapper {
+    width: 100%;
+    max-width: 400px; /* ليظل النموذج متمركزاً وأنيقاً */
+    display: flex;
+    flex-direction: column;
+}
+
+/* تنسيق الشعار والعناوين */
+.brand-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    color: var(--accent-gold);
+    margin-top: 50px;
+    /* مساحة واسعة */
+    letter-spacing: 0.5px;
+}
+
+.heading-welcome {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+}
+
+.subheading-description {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 20px; /* مساحة قبل الفورم */
+}
+
+/* تنسيق نموذج تسجيل الدخول */
+.login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group {
+    margin-bottom: 25px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 14px;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 16px;
+    border: 1px solid rgba(0,0,0,0.1); /* حدود ناعمة */
+    background: rgba(255, 255, 255, 0.6); /* شفافة للمدخلات */
+    border-radius: 8px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.input-group input:focus {
+    border-color: var(--accent-gold);
+    background: white;
+    box-shadow: 0 0 0 4px rgba(166, 138, 100, 0.1);
+}
+
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    margin-bottom: 30px;
+}
+
+.checkbox-remember {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-secondary);
+    cursor: pointer;
+}
+
+.forgot-link {
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+/* زر تسجيل الدخول: يحل محل زر Continue */
+.login-submit-btn {
+    width: 100%;
+    padding: 18px;
+    background-color: var(--text-primary); /* أسود هادئ */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: 0.4s;
+    margin-bottom: 20px;
+}
+
+.login-submit-btn:hover {
+    background-color: #333;
+    transform: translateY(-2px);
+}
+
+.signup-footer-text {
+    font-size: 13px;
+    text-align: center;
+    color: var(--text-secondary);
+}
+
+.signup-footer-text a {
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+
+
