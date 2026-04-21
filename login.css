@@ -107,8 +107,8 @@ body {
 .input-group input {
     width: 100%;
     padding: 16px;
-    border: 1px solid rgba(0,0,0,0.1); /* حدود ناعمة */
-    background: rgba(255, 255, 255, 0.6); /* شفافة للمدخلات */
+    border: 1px solid rgba(0,0,0,0.1); 
+    background: rgba(255, 255, 255, 0.6);
     border-radius: 8px;
     outline: none;
     transition: 0.3s;

@@ -6,7 +6,7 @@
     <title>LuxeSpace Interior Design | Login</title>
     <link rel="stylesheet" href="login2.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-    
+    <script src="login2.js"></script>
 </head>
 <body>
     <div class="full-page-background">
@@ -23,7 +23,7 @@
                 
                 <p class="subheading-description">Create an account to explore modern furniture and exclusive offers.</p>
                 
-                <form class="login-form">
+                <form class="login-form" onsubmit="return gotohome()">
                     <div class="input-group">
                         <label>Email Address</label>
                         <input type="email" placeholder="Enter your email" required>

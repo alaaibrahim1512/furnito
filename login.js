@@ -1,5 +1,5 @@
 function gotohome(){
-    alert("WELCOME BACK AT FURNIR");
+    alert("Welcome back to Furniro! Your dream home is waiting 🏡✨ ");
     window.location.href= "";
     return false;
 }
