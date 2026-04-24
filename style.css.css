@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+body {
+    background-color: #f0f0f0;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+    margin: 0;
+}
+
+.cart-container {
+    background-color: #fff;
+    width: 417px;
+    padding: 25px 30px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.cart-header h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.divider {
+    border: 0;
+    border-top: 1px solid #D9D9D9;
+    margin: 15px 0;
+    width: 100%;
+}
+
+
+.cart-items {
+    margin-top: 35px;   
+    margin-bottom: 100px;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.img-wrapper {
+    width: 105px;
+    height: 105px;
+    background-color: #F9F1E7;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.img-wrapper img {
+    width: 100%;
+    height: auto;
+}
+
+.item-details {
+    flex-grow: 1;
+    margin-left: 15px;
+}
+
+.item-details h3 {
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0 0 8px 0;
+}
+
+.item-price-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.qty {
+    font-size: 15px;
+}
+
+.x {
+    font-size: 11px;
+    margin: 0 8px;
+}
+
+
+.price {
+    color: #B88E2F;
+    font-weight: 400;
+    font-size: 13px;
+}
+
+
+.subtotal-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.total-amount {
+    color: #B88E2F;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.cart-btn {
+    background: transparent;
+    border: 1px solid #000;
+    padding: 8px 45px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 12px;
+    transition: 0.3s;
+}
+
+.cart-btn:hover {
+    background-color: #000;
+    color: #fff;
+}
