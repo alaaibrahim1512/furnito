@@ -1,0 +1,133 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    padding: 50px;
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto 50px auto;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 80px;
+    background-color: #fff;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img  {
+    width: 35px;
+    height: auto; 
+}
+
+.logo h2 {
+    font-size: 24px; 
+    margin: 0;
+    color: #000;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+}
+
+/* Product Section */
+.product-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.product-content {
+    display: flex;
+    gap: 50px;
+    align-items: flex-start;
+}
+
+.product-image img {
+    width: 450px;
+    background-color: #fdf5f0; /* Slight peach background like the image */
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.product-details h1 {
+    font-size: 42px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.price {
+    font-size: 20px;
+    color: #9f9f9f;
+    margin-bottom: 20px;
+}
+
+.description {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #000;
+    max-width: 400px;
+    margin-bottom: 30px;
+}
+
+/* Buttons and Controls */
+.actions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.quantity-selector {
+    border: 1px solid #9f9f9f;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px 15px;
+}
+
+.quantity-selector button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.btn-add, .btn-compare {
+    background: white;
+    border: 1px solid #000;
+    padding: 12px 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-add:hover {
+    background: #000;
+    color: #fff;
+}
