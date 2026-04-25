@@ -3,8 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Furniro | eCommerce</title>
+    <title id="page-title">Furniro | Product</title>
     <link rel="stylesheet" href="product.css">
+    <script src="product&cart.js"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -18,40 +22,125 @@
                 <li><a href="Home.html">Home</a></li>
                 <li><a href="shop.html">Shop</a></li>
                 <li><a href="cart.html.html">Cart</a></li>
-                
-                
                 <li><a href="login1.html" class="login-btn">Login</a></li>
             </ul>
         </nav>
+        <div class="header-icons">
+            <a href="cart.html.html" class="cart-link">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span id="cart-count">0</span>
+            </a>
+        </div>
     </header>
 
-    <main class="product-container">
+    <main class="product-container" id="main-content">
         <div class="product-content">
-            <div class="product-image">
-                <a href="product-details.html" target="_blank">
-                    <img src="https://path-to-your-sofa-image.jpg" alt="Asgaard sofa">
-                </a>
+            <div class="product-image-box">
+                <img id="p-img" src="" alt="Product Image">
             </div>
 
-            <div class="product-details">
-                <h1>Asgaard sofa</h1>
-                <p class="price">Rs. 250,000.00</p>
-                <p class="description">
-                    Setting the bar as one of the loudest speakers in its class, the Kilburn is a compact, stout-hearted hero with a well-balanced audio which boasts a clear midrange and extended highs for a sound.
-                </p>
+            <div class="product-info-box">
+                <h1 id="p-title">Loading...</h1>
+                <p class="price" id="p-price"></p>
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                    <span>| 5 Customer Review</span>
+                </div>
+                <p class="description" id="p-desc"></p>
 
                 <div class="actions">
-                    <div class="quantity-selector">
+                    <div class="quantity">
                         <button>-</button>
                         <span>1</span>
                         <button>+</button>
                     </div>
-                    <button class="btn-add">Add To Cart</button>
-                    <button class="btn-compare">+ Compare</button>
+                    <button class="btn-add" id="add-to-cart-btn">Add To Cart</button>
                 </div>
             </div>
         </div>
     </main>
+  <script>
+    
+    const productsData = {
+        "1": { name: "Syltherine", price: "10,000 LE", img: "photo_2026-04-20_14-22-22.jpg", desc: "Stylish cafe chair, designed for ultimate comfort." },
+        "2": { name: "Leviosa", price: "25,000 LE", img: "photo_2026-04-20_14-43-32.jpg", desc: "Premium cafe table with a sleek marble finish." },
+        "3": { name: "Lolito", price: "70,000 LE", img: "photo_2026-04-20_14-45-40.jpg", desc: "Luxury big sofa, handcrafted with high-quality materials." },
+        "4": { name: "Respira", price: "35,000 LE", img: "photo_5996691140805070000_y.jpg", desc: "Outdoor sofa and table set, weather resistant." },
+        "5": { name: "Sofa Grage", price: "25,000 LE", img: "photo_5996691140805070001_y.jpg", desc: "Modern grey sofa for compact living rooms." },
+        "6": { name: "Modern Chair", price: "3,000 LE", img: "photo_5996691140805070002_y.jpg", desc: "Minimalist chair for office or home use." },
+        "7": { name: "Table Set", price: "15,000 LE", img: "photo_5994372021673987351_y.jpg", desc: "Complete dining table set for family gatherings." },
+        "8": { name: "Canio Grey", price: "35,000 LE", img: "photo_5996691140805070003_y.jpg", desc: "Elegant home chair with premium upholstery." }
+    };
 
+    
+    function loadProduct() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = urlParams.get('id');
+
+        console.log("Product ID found:", productId); 
+
+        const product = productsData[productId];
+
+        if (product) {
+            
+            document.getElementById('p-title').innerText = product.name;
+            document.getElementById('p-price').innerText = product.price;
+            document.getElementById('p-desc').innerText = product.desc;
+            document.getElementById('p-img').src = product.img;
+            document.title = "Furniro | " + product.name;
+        } else {
+            console.error("Product not found in data!");
+            document.getElementById('p-title').innerText = "Product Not Found";
+        }
+
+        
+function updateCartCount() {
+    let cart = JSON.parse(localStorage.getItem('furniro_cart')) || [];
+    const countElement = document.getElementById('cart-count');
+    if (countElement) {
+        countElement.innerText = cart.length;
+    }
+}
+
+
+function addToCart(product) {
+   
+    let cart = JSON.parse(localStorage.getItem('furniro_cart')) || [];
+
+    
+    cart.push({
+        id: productId,
+        name: product.name,
+        price: product.price,
+        img: product.img
+    });
+
+    
+    localStorage.setItem('furniro_cart', JSON.stringify(cart));
+
+    
+    updateCartCount();
+    alert(product.name + " added to cart!");
+}
+
+
+document.getElementById('add-to-cart-btn').onclick = function() {
+    if (product) {
+        addToCart(product);
+    }
+};
+
+
+updateCartCount();
+    }
+
+    
+    window.onload = loadProduct;
+</script>
+    
 </body>
 </html>

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Furniro | Home</title>
     <link rel="stylesheet" href="home.css">
-    
+    <script src="home.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -35,7 +35,7 @@
         <span>New Arrival</span>
         <h1>Discover Our <br> New Collection</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.</p>
-        <button onclick="location.href='#shop'">Buy Now</button>
+        <button onclick="return gotoshop()">Buy Now</button>
     </div>
 </section>
 
@@ -97,11 +97,11 @@
                 <p>Outdoor bar table and stool</p>
                 <div class="price">$500</div>
             </div>
-            <div class="overlay"><button class="btn-add">Add to cart</button></div>
+            <div class="overlay"><button class="btn-add" >Add to cart</button></div>
         </div>
     </div>
     
-    <button class="show-more">Show More</button>
+    <button class="show-more" onclick="return gotoshop()">Show More</button>
 </section>
 
 </body>

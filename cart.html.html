@@ -5,56 +5,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping Cart</title>
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/all.css">
-    <link rel="stylesheet" href="style.css.css">
-</head>
+    <link rel="stylesheet" href="style.css.css"> </head>
 <body>
 
 <div class="cart-container">
     <div class="cart-header">
         <h2>Shopping Cart</h2>
-     </div>
+        <i class="fa-light fa-bag-shopping" style="font-size: 20px; color: #9F9F9F;"></i>
+    </div>
     <hr class="divider">
-    <div class="cart-items">
-        <div class="item">
-            <div class="img-wrapper">
-                <img src="..//Carts/cart img/2ac413c1917ac944454e358f73d0af67e1f1b74e.png" alt="Asgaard sofa">
-            </div>
-            <div class="item-details">
-                <h3>Asgaard sofa</h3>
-                <div class="item-price-info">
-                    <span class="qty">1 <span class="x">x</span></span>
-                    <span class="price">Rs. 250,000.00</span>
-                </div>
-            </div>
+    
+    <div class="cart-items" id="cart-items-container">
         </div>
 
-        <div class="item">
-            <div class="img-wrapper">
-                <img src="..//Carts/cart img/76149a1a1d489ea6ae7783215d8976dab5c582e3.jpg" alt="Casaliving Wood">
-            </div>
-            <div class="item-details">
-                <h3>Casaliving Wood</h3>
-                <div class="item-price-info">
-                    <span class="qty">1 <span class="x">x</span></span>
-                    <span class="price">Rs. 270,000.00</span>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="cart-footer">
-        <hr class="divider">
         <div class="subtotal-row">
             <span class="label">Subtotal</span>
-            <span class="total-amount">Rs. 520,000.00</span>
+            <span class="total-amount" id="cart-total-price">LE 0.00</span>
         </div>
 
         <hr class="divider">
 
         <div class="btn-container">
-            <button class="cart-btn">Cart</button>
+            <button class="cart-btn" onclick="clearCart()">Clear Cart</button>
         </div>
     </div>
 </div>
+
+<script>
+    function displayCart() {
+        
+        let cart = JSON.parse(localStorage.getItem('furniro_cart')) || [];
+        const container = document.getElementById('cart-items-container');
+        const totalElement = document.getElementById('cart-total-price');
+        
+        container.innerHTML = ''; 
+        let total = 0;
+
+        if (cart.length === 0) {
+            container.innerHTML = '<p style="text-align:center; color:#9f9f9f;">Your cart is empty</p>';
+            totalElement.innerText = 'LE 0.00';
+            return;
+        }
+
+        
+        cart.forEach((item, index) => {
+            
+            let priceNum = parseFloat(item.price.replace(/[^\d.]/g, ''));
+            total += priceNum;
+
+            container.innerHTML += `
+                <div class="item">
+                    <div class="img-wrapper">
+                        <img src="${item.img}" alt="${item.name}">
+                    </div>
+                    <div class="item-details">
+                        <h3>${item.name}</h3>
+                        <div class="item-price-info">
+                            <span class="qty">1 <span class="x">x</span></span>
+                            <span class="price">${item.price}</span>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-circle-xmark" style="color: #B88E2F; cursor: pointer; margin-left: 10px;" onclick="removeItem(${index})"></i>
+                </div>
+            `;
+        });
+
+        
+        totalElement.innerText = 'LE ' + total.toLocaleString();
+    }
+
+    
+    function removeItem(index) {
+        let cart = JSON.parse(localStorage.getItem('furniro_cart')) || [];
+        cart.splice(index, 1); 
+        localStorage.setItem('furniro_cart', JSON.stringify(cart)); 
+        displayCart(); 
+    }
+
+    
+    function clearCart() {
+        localStorage.removeItem('furniro_cart');
+        displayCart();
+    }
+
+    
+    window.onload = displayCart;
+</script>
 
 </body>
 </html>
