@@ -48,9 +48,10 @@ body { background-color: #fff; }
 
 .product-image-box img {
     width: 100%;
-    max-width: 500px;
+    max-width: 600px;
     max-height: 500px;
     border-radius: 10px;
+     object-fit: cover;
     background-color: #F9F1E7; 
 }
 

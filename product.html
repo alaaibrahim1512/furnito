@@ -51,14 +51,8 @@
                     <span>| 5 Customer Review</span>
                 </div>
                 <p class="description" id="p-desc"></p>
-
-                <div class="actions">
-                    <div class="quantity">
-                        <button>-</button>
-                        <span>1</span>
-                        <button>+</button>
-                    </div>
                     <button class="btn-add" id="add-to-cart-btn">Add To Cart</button>
+                   
                 </div>
             </div>
         </div>
@@ -105,6 +99,22 @@ function updateCartCount() {
         countElement.innerText = cart.length;
     }
 }
+
+
+    function increase() {
+        let input = document.getElementById('quantity');
+        let value = parseInt(input.value);
+        input.value = value + 1;
+    }
+
+    function decrease() {
+        let input = document.getElementById('quantity');
+        let value = parseInt(input.value);
+        if (value > 1) {
+            input.value = value - 1;
+        }
+    }
+
 
 
 function addToCart(product) {
