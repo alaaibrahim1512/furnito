@@ -265,3 +265,14 @@ body {
     background: var(--gold);
     color: #fff;
 }
+
+footer {
+    padding: 60px 10%;
+    border-top: 1px solid #e8e8e8;
+    margin-top: 50px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+}
